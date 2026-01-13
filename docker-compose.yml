@@ -1,6 +1,7 @@
 services:
   service-pg:
     image: bitnami/postgresql
+    container_name: pg-container
     ports:
       - "5432:5432"
     environment:
@@ -10,6 +11,7 @@ services:
 
   service-redis:
     image: bitnami/redis
+    container_name: redis-container
     ports:
       - "6379:6379"
     environment:
