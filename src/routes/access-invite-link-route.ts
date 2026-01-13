@@ -5,7 +5,7 @@ import { accessInviteLink } from "../functions/access-invite-link";
 
 export const acessInviteLinkRoute: FastifyPluginAsyncZod = async (app) => {
   app.get(
-    "/invite/:subscriberId",
+    "/invites/:subscriberId",
     {
       schema: {
         summary: "Acessar ao link de convite e redirecione o usuário",
@@ -14,9 +14,7 @@ export const acessInviteLinkRoute: FastifyPluginAsyncZod = async (app) => {
           subscriberId: z.string(),
         }),
         response: {
-          201: z.object({
-            subscriberId: z.string(),
-          }),
+          302: z.null(),
         },
       },
     },
